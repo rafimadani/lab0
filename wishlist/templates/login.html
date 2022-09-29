@@ -6,18 +6,18 @@
 
 {% block content %}
 
-<div class = "login d-flex flex-column justify-content-center align-items-center" style="padding:20px;" >
+<div class = "login d-flex flex-column justify-content-center align-items-center" style="padding:50px;" >
     <h1>Login</h1>
 
     <form method="POST" action="" class="d-flex flex-column justify-content-center">
         {% csrf_token %}
-        <div class="mb-3">
-          <label for="exampleInputUsername" class="form-label">Username</label>
-          <input type="text" name="username" placeholder="Username" class="form-control" style="width: 350px">
+        <div class="mb-2">
+          <label for="exampleUsername" class="form-label">Username</label>
+          <input type="text" name="username" placeholder="Username" class="form-control" style="width: 450px">
         </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Password</label>
-          <input type="password" class="form-control" name="password" placeholder="Password" style="width: 350px" >
+        <div class="mb-2">
+          <label for="examplePassword" class="form-label">Password</label>
+          <input type="password" class="form-control" name="password" placeholder="Password" style="width: 450px" >
         </div>
         <button type="submit" class="btn login_btn btn-primary" value="login">Login</button>
     </form>
