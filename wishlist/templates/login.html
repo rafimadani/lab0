@@ -5,17 +5,22 @@
 {% endblock meta %}
 
 {% block content %}
-
+<style>
+body {
+    background-color: black;
+  }
+</style>
+<body>
 <div class = "login d-flex flex-column justify-content-center align-items-center" style="padding:50px;" >
     <h1>Login</h1>
 
     <form method="POST" action="" class="d-flex flex-column justify-content-center">
         {% csrf_token %}
-        <div class="mb-2">
+        <div class="mb-5 d-flex flex-column justify-content-center align-items-center">
           <label for="exampleUsername" class="form-label">Username</label>
           <input type="text" name="username" placeholder="Username" class="form-control" style="width: 450px">
         </div>
-        <div class="mb-2">
+        <div class="mb-5">
           <label for="examplePassword" class="form-label">Password</label>
           <input type="password" class="form-control" name="password" placeholder="Password" style="width: 450px" >
         </div>
@@ -33,5 +38,6 @@
     Belum mempunyai akun? <a href="{% url 'wishlist:register' %}">Buat Akun</a>
 
 </div>
+</body>
 
 {% endblock content %}

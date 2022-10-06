@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+<title>Submit</title>
+{% endblock meta %}
+
+{% block content %}
+
+
+
+<div class = "login d-flex flex-column justify-content-center align-items-center" style="padding:20px;" >
+    <h1>Submit</h1>
+
+    <form method="POST" action="" id="form" class="d-flex flex-column justify-content-center">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="exampleInputNama" class="form-label">Nama Barang</label>
+          <input type="text" name="nama_barang" placeholder="Nama Barang" class="form-control" style="width: 350px">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputHarga" class="form-label">Harga Barang</label>
+          <input type="number" class="form-control" name="harga_barang" placeholder="Harga Barang" style="width: 350px" >
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputDeskripsi" class="form-label">Deskripsi</label>
+            <input type="teks" class="form-control" name="deskripsi" placeholder="Deskripsi" style="width: 350px" >
+          </div>
+        <button type="submit" class="btn login_btn btn-primary" value="submit">Submit</button>
+    </form>
+
+</div>
+
+{% endblock content %}

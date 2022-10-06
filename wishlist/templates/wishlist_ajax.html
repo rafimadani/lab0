@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<script>
+  var  myArray = []
+  $.ajax({
+    method : 'GET',
+    url: "{% url 'wishlist:show_json' %}",
+    succes:function(response){
+      myArray=response.data
+      buildTable(myArray)
+      console.log(myArray)
+    }
+  })
+  function buildTable(data){
+    var table = document.getElementById('table')
+    for (var i = 0; i < data.length; i++){
+      var row = `<tr>
+                    <td>${data[i].nama_barang}</td>
+                    <td>${data[i].harga}</td>
+                    <td>${data[i].deskripsi}</td>
+                </tr>`
+      table.innerHTML += row
+
+    }
+  }
+</script>
+<nav class="navbar navbar-dark bg-primary">
+    <form class="container-fluid">
+        <a class="navbar-brand">{{nama}}</a>
+        <li class="nav-item menu">
+            <a class="nav-link menu-toggle" href="#" role="button" data-bs-toggle="menu" aria-expanded="false">
+              Menu
+            </a>
+            <ul class="menu-menu">
+              <li><a class="menu-item" href="{% url 'wishlist:logout' %}">Logout</a></li>
+            </ul>
+          </li>    
+</nav>
+
+<table class="table" style="padding: 20px;">
+    <thead>
+    <tr>
+    <th scope="col">Nama Barang</th>
+    <th scope="col">Harga Barang</th>
+    <th scope="col">Deskripsi</th>
+    </tr>
+    </thead>    
+    <tr>
+    <tbody id="myTable"></tbody>
+    </tr>
+    
+    </tbody>
+</table>
+<div class="navbar">
+    <a style="padding: 50px;" >Sesi terakhir login: {{ last_login }}</a>
+</div>
+
+
+
+{% endblock content %}
